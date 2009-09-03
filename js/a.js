@@ -36,35 +36,16 @@
    (window.pot || (window.pot = {})).a = {};
    var a = window.pot.a;   
    a.version = '1.0';  
-   a.path = function(el){
-      var xpath = '';
-      var pos, tempitem2;   
-      while(el !== document.documentElement) {    
-         pos = 0;
-         tempitem2 = el;
-         while(tempitem2) {
-            if (tempitem2.nodeType === 1 && tempitem2.nodeName === el.nodeName) {
-               pos += 1;
-            }
-            tempitem2 = tempitem2.previousSibling;
-         }      
-         xpath = "*[name()='"+el.nodeName+"' and namespace-uri()='"+(el.namespaceURI===null?'':el.namespaceURI)+"']["+pos+']'+'/'+xpath;
-         el = el.parentNode;
-      }
-      xpath = '/*'+"[name()='"+document.documentElement.nodeName+"' and namespace-uri()='"+(el.namespaceURI===null?'':el.namespaceURI)+"']"+'/'+xpath;
-      xpath = xpath.replace(/\/$/, '');
-      return xpath;     
-   };   
    a.clk = function(e,a,c) {
       var u=encodeURIComponent || escape;
       (new Image).src=[
-         location.protocol+'//'+location.host+'/pot.php?t=a',
+         location.protocol+'//'+location.host+'/pot.php?a=c',
+         't='+a.nodeName.toLowerCase(),
          'c='+c,
          'i='+u(a.id),
          'r='+u(a.rel),
          'h='+u(a.href),         
-         'ti='+u(a.title),
-         'pa='+u(window.pot.a.path(a)),
+         'ti='+u(a.title),         
          'w='+u(location.href),
          'cx='+e.clientX,
          'cy='+e.clientY,
