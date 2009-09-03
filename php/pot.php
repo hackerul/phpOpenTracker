@@ -32,21 +32,20 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-if ($_GET['t'] == 'a') {
+if ($_GET['a'] == 'c') {
     $mysqli = new MySQLi(POT_DB_HOST, POT_DB_USER, POT_DB_PASS, POT_DB);
 
     $stmt = $mysqli->prepare(
       'INSERT INTO clicks
-                   (page_impression, link_position_count, link_position_xpath,
+                   (page_impression, link_position_count,
                     element_tag, element_id, element_href, element_rel,
                     element_title, event_client_x, event_client_y, event_page_x,
                     event_page_y, event_screen_x, event_screen_y)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
     );
 
     $stmt->bind_param('i', $_SESSION['page_impression']);
     $stmt->bind_param('i', $_GET['c']);
-    $stmt->bind_param('s', $_GET['pa']);
     $stmt->bind_param('s', $_GET['t']);
     $stmt->bind_param('s', $_GET['i']);
     $stmt->bind_param('s', $_GET['h']);
