@@ -121,7 +121,6 @@ CREATE TABLE clicks (
   `page_impression`      BIGINT    UNSIGNED NOT NULL REFERENCES page_impressions.page_impression,
 
   `link_position_count`  SMALLINT  UNSIGNED NOT NULL,
-  `link_position_xpath`  CHAR(255)          NOT NULL,
 
   `element_tag`          CHAR(8)            NOT NULL,
   `element_id`           CHAR(128)          NOT NULL,
